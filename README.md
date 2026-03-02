@@ -1,39 +1,30 @@
-# The Agentic File-System Manifesto  
-## A Deterministic Architecture for Trustworthy AI-Generated Software
+| Thesis | Title |
+|---|---|
+| 1 | [[#1. The local file system is the best foundation for agent work]] |
+| 2 | [[#2. A knowledge base is mandatory]] |
+| 3 | [[#3. Knowledge base should be graph based]] |
+| 4 | [[#4. Inter-linked Markdown files as the knowledge graph]] |
+| 5 | [[#5. Code should be co-located with documentation]] |
+| 6 | [[#6. AI code has a trust and control deficit]] |
+| 7 | [[#7. Humans should interact with a schema, not code]] |
+| 8 | [[#8. The schema should be textual, compilable, and lintable]] |
+| 9 | [[#9. The schema should be a data flow DAG]] |
+| 10 | [[#10. Functional programming aligns with data flow]] |
+| 11 | [[#11. Code, tests, and documentation are equivalent]] |
+| 12 | [[#12. A function is a folder]] |
+| 13 | [[#13. Extreme standardization is required]] |
+| 14 | [[#14. Tests are data points, not code]] |
+| 15 | [[#15. Test execution should be generated]] |
+| 16 | [[#16. The schema should map directly to the file structure]] |
+| 17 | [[#17. The architecture should be fractal]] |
+| 18 | [[#18. The schema should be visually editable]] |
+| 19 | [[#19. Context switching is the bottleneck]] |
+| 20 | [[#20. A single orchestrator agent should interface with humans]] |
+| 21 | [[#21. Tasks are Markdown files]] |
+| 22 | [[#22. Git worktrees enable parallel agents]] |
+| 23 | [[#23. Structured knowledge eliminates skill files]] |
 
----
-
-# Introduction
-
-AI agents can now generate enormous amounts of code.  
-The constraint is no longer generation capacity.
-
-The real bottlenecks are:
-
-- Trust  
-- Control  
-- Observability  
-- Human comprehension  
-- Multi-agent coordination  
-
-This manifesto proposes a complete architectural philosophy for building agentic systems that are:
-
-- Deterministic  
-- Auditable  
-- Structurally comprehensible  
-- Fractally organized  
-- Fully version-controlled  
-- Human-architected, agent-implemented  
-
-The core claim:
-
-> The local file system, structured by a recursive schema and implemented functionally, is the most effective substrate for agentic software development.
-
----
-
-# I. The File System Is the Correct Primitive
-
-## Thesis 1 — The Local File System Is the Native Substrate for Agents
+## 1. The local file system is the best foundation for agent work
 
 Modern agent systems often default to:
 
@@ -79,11 +70,8 @@ It is deterministic state.
 
 That makes it ideal.
 
----
 
-# II. Domain Knowledge Must Be Explicit and Graph-Based
-
-## Thesis 2 — A Knowledge Base Is Mandatory and Must Be Graph-Based
+## 2. A knowledge base is mandatory
 
 Agents possess broad internet knowledge.  
 They lack *your* knowledge.
@@ -96,7 +84,9 @@ They do not know:
 - Your application constraints  
 - Your preferences  
 
-This knowledge must be externalized.
+This knowledge should be externalized.
+
+## 3. Knowledge base should be graph based
 
 A tree is insufficient because knowledge is not hierarchical.  
 It is relational.
@@ -109,7 +99,7 @@ Example:
 
 Therefore:
 
-> Knowledge must be stored as a graph, not a tree.
+> Knowledge should be stored as a graph, not a tree.
 
 A graph allows:
 
@@ -122,9 +112,8 @@ This avoids probabilistic retrieval systems where context is guessed.
 
 Instead, relationships are explicit.
 
----
 
-## Thesis 3 — The Obsidian Vault as the Knowledge Graph
+## 4. Inter-linked Markdown files as the knowledge graph
 
 The ideal implementation is:
 
@@ -133,10 +122,10 @@ The ideal implementation is:
 - Interconnected via links  
 - Visualized as a graph  
 
-Obsidian provides:
+A Markdown-first graph workspace provides:
 
 - Markdown-native storage  
-- Graph visualization  
+- Link graph visualization  
 - Backlinking  
 - Search  
 - Local-first design  
@@ -160,11 +149,8 @@ The vault becomes:
 
 > The canonical knowledge layer of the system.
 
----
 
-# III. Code Must Live With Knowledge
-
-## Thesis 4 — Code Must Be Co-Located With Documentation
+## 5. Code should be co-located with documentation
 
 Traditional systems separate:
 
@@ -177,15 +163,21 @@ This fragments understanding.
 
 Instead:
 
-    /finance
-        /functions
-        /documentation
-        /tests
-        schema.md
+```
+function_name/
+	function_name.py
+	function_name.md
+	examples/
+		0000/
+			input.json
+			output.json
+		...
+	utils/
+```
 
 The rule:
 
-> Articles describing a system and code implementing it must be co-located.
+> Articles describing a system and code implementing it should be co-located.
 
 This creates:
 
@@ -199,11 +191,8 @@ The vault is not “documentation about code.”
 
 It is the environment in which code lives.
 
----
 
-# IV. The Trust Crisis of AI-Generated Code
-
-## Thesis 5 — AI Code Has a Trust and Control Deficit
+## 6. AI code has a trust and control deficit
 
 Human-written code carries implicit trust:
 
@@ -235,13 +224,10 @@ Understandability is currently expensive because:
 - Reading code scales linearly.  
 - Generated code scales exponentially.  
 
-We must reduce the cost of comprehension.
+We should reduce the cost of comprehension.
 
----
 
-# V. The Schema as the Primary Interface
-
-## Thesis 6 — Humans Should Interact With a Schema, Not Code
+## 7. Humans should interact with a schema, not code
 
 Code is implementation detail.
 
@@ -257,16 +243,15 @@ This mirrors how architects operate.
 
 The schema becomes:
 
-> The contract the code must obey.
+> The contract the code should obey.
 
 AI agents implement.  
 Humans design.
 
----
 
-## Thesis 7 — The Schema Must Be Textual, Compilable, and Lintable
+## 8. The schema should be textual, compilable, and lintable
 
-The schema must:
+The schema should:
 
 1. Compile to diagrams.  
 2. Compile to type definitions.  
@@ -288,9 +273,8 @@ The schema becomes the canonical source.
 
 Everything else derives from it.
 
----
 
-## Thesis 8 — The Schema Should Be a Data Flow DAG
+## 9. The schema should be a data flow DAG
 
 The most useful mental model of a system is:
 
@@ -313,11 +297,8 @@ Understanding becomes immediate.
 
 Modification becomes surgical.
 
----
 
-# VI. Functional Programming Is the Natural Implementation
-
-## Thesis 9 — Functional Programming Aligns With Data Flow
+## 10. Functional programming aligns with data flow
 
 Data flow diagrams describe:
 
@@ -343,11 +324,8 @@ Object-oriented systems obscure data flow.
 
 Functional systems reveal it.
 
----
 
-# VII. A Function Has Three Equivalent Definitions
-
-## Thesis 10 — Code, Tests, and Documentation Are Equivalent
+## 11. Code, tests, and documentation are equivalent
 
 A function can be defined by:
 
@@ -361,11 +339,10 @@ Drift between them causes bugs.
 
 Therefore:
 
-> They must be kept together.
+> They should be kept together.
 
----
 
-## Thesis 11 — A Function Is a Folder
+## 12. A function is a folder
 
 Instead of:
 
@@ -387,9 +364,8 @@ Advantages:
 
 Copy the folder → copy the function.
 
----
 
-## Thesis 12 — Extreme Standardization Is Required
+## 13. Extreme standardization is required
 
 Human code tolerates stylistic diversity.
 
@@ -399,9 +375,9 @@ When generation volume increases:
 
 > Standardization becomes mandatory.
 
-Every function must follow identical structure.
+Every function should follow identical structure.
 
-Humans must instantly locate:
+Humans should instantly locate:
 
 - Implementation  
 - Tests  
@@ -409,11 +385,8 @@ Humans must instantly locate:
 
 Without hunting.
 
----
 
-# VIII. Tests Must Be Data
-
-## Thesis 13 — Tests Are Data Points, Not Code
+## 14. Tests are data points, not code
 
 Mathematically:
 
@@ -434,9 +407,8 @@ Benefits:
 - Easier modification  
 - Machine-readable and human-readable  
 
----
 
-## Thesis 14 — Test Execution Should Be Generated
+## 15. Test execution should be generated
 
 A global framework should:
 
@@ -448,22 +420,18 @@ Function folders contain test data.
 
 Execution logic is centralized.
 
----
 
-# IX. Schema ↔ File System Symmetry
-
-## Thesis 15 — The Schema Must Map Directly to the File Structure
+## 16. The schema should map directly to the file structure
 
 You should be able to:
 
 - Look at a schema node  
 - Immediately find its folder  
 
-Schema and file system must be isomorphic.
+Schema and file system should be isomorphic.
 
----
 
-## Thesis 16 — The Architecture Must Be Fractal
+## 17. The architecture should be fractal
 
 Each node:
 
@@ -482,11 +450,8 @@ The structure repeats recursively.
 
 Understanding scales smoothly.
 
----
 
-# X. Humans Need a Live Graphical Editor
-
-## Thesis 17 — The Schema Must Be Visually Editable
+## 18. The schema should be visually editable
 
 Humans should:
 
@@ -500,11 +465,8 @@ Agents update the schema.
 
 Humans interact visually.
 
----
 
-# XI. Multi-Agent Systems Without Human Cognitive Overload
-
-## Thesis 18 — Context Switching Is the Bottleneck
+## 19. Context switching is the bottleneck
 
 Managing multiple coding agents causes:
 
@@ -515,9 +477,8 @@ Managing multiple coding agents causes:
 
 This is unsustainable.
 
----
 
-## Thesis 19 — A Single Orchestrator Agent Should Interface With Humans
+## 20. A single orchestrator agent should interface with humans
 
 Humans interact with:
 
@@ -533,11 +494,8 @@ That agent:
 
 Humans maintain one continuous thread.
 
----
 
-# XII. Multi-Agent Systems Must Be File-Based
-
-## Thesis 20 — Tasks Are Markdown Files
+## 21. Tasks are Markdown files
 
 Each task is:
 
@@ -557,13 +515,10 @@ Advantages:
 - Stateless orchestration  
 - Reduced conflict  
 
----
 
-# XIII. Git Is Foundational
+## 22. Git worktrees enable parallel agents
 
-## Thesis 21 — Git Worktrees Enable Parallel Agents
-
-All file-based systems must use Git.
+All file-based systems should use Git.
 
 Agents:
 
@@ -580,11 +535,8 @@ Git provides:
 - Parallel development  
 - Forensic traceability  
 
----
 
-# XIV. The End of Agent “Skills”
-
-## Thesis 22 — Structured Knowledge Eliminates Skill Files
+## 23. Structured knowledge eliminates skill files
 
 Many systems define “skills” as:
 
@@ -613,26 +565,3 @@ The only built-in skill required is:
 The vault is not documentation.
 
 It is the system.
-
----
-
-# Conclusion
-
-This manifesto proposes:
-
-- File-system-first architecture  
-- Graph-based knowledge  
-- Schema-driven development  
-- Functional implementation  
-- Test-as-data philosophy  
-- Recursive structure  
-- Git-backed safety  
-- Single-orchestrator interaction  
-- Skill-less discoverability  
-
-The file system becomes the shared substrate.  
-The schema becomes the contract.  
-The function becomes atomic.  
-Tests become data.  
-Agents become implementers.  
-Humans remain architects.
